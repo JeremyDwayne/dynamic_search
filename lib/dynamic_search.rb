@@ -1,9 +1,21 @@
 module DynamicSearch
   extend ActiveSupport::Concern
+  ##
+  # This module provides the parent search method which will be available
+  # to any model which includes DynamicSearch `include DynamicSearch`
 
   module ClassMethods
 
     def search(search, columns = nil)
+      ##
+      # The search method will search all columns except foreign keys, id,
+      # and timestamps. The columns searched can be overwritten in an individual model
+      # by using the following syntax:
+      # 
+      # def search(search)
+      #   super(search, ["array", "of", "columns"])
+      # end
+
       if search.present?
         columns ||= self.column_names.reject{|e| e.end_with?("_id")} - ["id", "created_at", "updated_at"]
         params = {}

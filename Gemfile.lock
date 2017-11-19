@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    dynamic_search (0.1.0)
-      rails (~> 5.1.4)
+    dynamic_search (0.1.2)
+      rails
 
 GEM
   remote: https://rubygems.org/

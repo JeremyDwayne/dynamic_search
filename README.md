@@ -2,33 +2,48 @@
 DynamicSearch provides support for multi term searches to your rails models.
 
 ## Usage
-This gem is still in development, and is not ready to be used yet. (11/19/2017)
-
-1. Include the search module to any model you want DynamicSearch functionality
+1. Include the module to any model you want DynamicSearch functionality.  
 ```ruby
-include Search
+include DynamicSearch
 ```
 
-2. Add and customize the search method to your models to specify how your search should work.
-```ruby
-def search(options)
-  super(search, ["first_name", "last_name", "username", "email"])
-end
+2. Customize the search method to your models to specify how your search should work. In
+   this case, you're telling the search method which columns you want included in your
+   search. By default, DynamicSearch looks at every column except foreign keys, id,
+   and timestamps.
+```ruby  
+def search(search)  
+  super(search, ["first_name", "last_name", "username", "email"])  
+end  
 ```
+
+3. To use the search you can create a search box form in your view.  
+```ruby  
+<%= form_for :model_name, method: 'get' do |f| %>  
+  <%= f.text_field :search, placeholder: "search" %>  
+<% end %>  
+```  
+Then in your controller, you can call the search method on your model.  
+```ruby  
+if params.has_key? :search  
+  @results = Model.search(params[:search])  
+end  
+```
+From there I normally would paginate the results.
 
 ## Installation
-Add this line to your application's Gemfile:
+Add this line to your application's Gemfile:  
 
 ```ruby
 gem 'dynamic_search'
 ```
 
-And then execute:
+And then execute:  
 ```bash
 $ bundle
 ```
 
-Or install it yourself as:
+Or install it yourself as:  
 ```bash
 $ gem install dynamic_search
 ```
