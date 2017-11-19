@@ -36,10 +36,8 @@ specify the columns you want to search on. If you don't specify columns, Dynamic
 will check against all of the columns on your model except foreign keys, id, and timestamps.
 
 ```ruby  
-if params.has_key? :search  
-  columns_array = ["first_name", "last_name", "username", "email"] 
-  @results = Model.search(params[:search], columns_array) 
-end  
+columns_array = ["first_name", "last_name", "username", "email"] 
+@results = Model.search(params[:search], columns_array) 
 ```
 From there I normally would paginate the results with Kaminari or WillPaginate.
 
