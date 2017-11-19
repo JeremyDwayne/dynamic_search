@@ -1,5 +1,6 @@
 # DynamicSearch
-DynamicSearch provides support for multi term searches to your rails models.
+DynamicSearch provides support for multi term searches to your rails models. At the
+moment, I would recommend using at least rails 4.2 or higher for security reasons.
 
 ## Usage
 1. Include the module to any model you want DynamicSearch functionality.  
