@@ -9,14 +9,14 @@ Gem::Specification.new do |s|
   s.version     = DynamicSearch::VERSION
   s.authors     = ["Jeremy Winterberg"]
   s.email       = ["winterjd@uwec.edu"]
-  s.homepage    = "https://www.github.com/jeremydwayne/dynamicsearch"
+  s.homepage    = "https://www.github.com/jeremydwayne/dynamic_search"
   s.summary     = "DynamicSearch provides support for multi term searches to your rails models."
   s.description = "Adds a search method which allows you to search for multiple words from multiple columns."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "rails", "~> 4.2", ">= 4.2.7"
+  s.add_dependency "rails", "~> 4.2"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec"
