@@ -11,13 +11,13 @@ Gem::Specification.new do |s|
   s.email       = ["winterjd@uwec.edu"]
   s.homepage    = "https://www.github.com/jeremydwayne/dynamicsearch"
   s.summary     = "DynamicSearch provides support for multi term searches to your rails models."
-  s.description = "DynamicSearch provides support for multi term searches to your rails models."
+  s.description = "Adds a search method which allows you to search for multiple words from multiple columns."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "rails", "~> 0"
+  s.add_dependency "rails", "~> 4.2.7"
 
-  s.add_development_dependency "sqlite3", "~> 0"
-  s.add_development_dependency "rspec", "~> 0"
+  s.add_development_dependency "sqlite3"
+  s.add_development_dependency "rspec"
 end
