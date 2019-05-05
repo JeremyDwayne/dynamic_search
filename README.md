@@ -1,6 +1,8 @@
 # DynamicSearch
 DynamicSearch provides support for multi term searches to your rails models. At the
-moment, I would recommend using at least rails 4.2 or higher for security reasons.
+moment, I would recommend using at least rails 5.2 or higher for security reasons.
+
+At the moment, the sql only supports PostgreSQL!
 
 ## Installation
 Add this line to your application's Gemfile:  

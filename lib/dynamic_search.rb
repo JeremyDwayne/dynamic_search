@@ -21,14 +21,12 @@ module DynamicSearch
         params = {}
         sql = []
 
-        search.split.each_with_index do |s, i|
-          params["first#{i}".to_sym] = "#{sanitize_sql(s)}%"
-          params["nth#{i}".to_sym] = "% #{sanitize_sql(s)}%"
+        search.split(' ').each_with_index do |s, i|
+          params["nth#{i}".to_sym] = "%#{sanitize_sql(s)}%"
 
           statements = []
           for column in columns
-            statements << "#{column} LIKE :first#{i}"
-            statements << "#{column} LIKE :nth#{i}"
+            statements << "UPPER(CAST(#{column} AS text)) LIKE UPPER(:nth#{i})"
           end
 
           sql << "(#{statements.join(" OR ")})"
